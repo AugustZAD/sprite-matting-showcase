@@ -74,9 +74,12 @@ body.focused .schemes { } /* keep 3-up even when focused */
 /* lightbox */
 #lb { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; }
 #lb.open { display:flex; }
-#lb .lb-stage { position:absolute; inset:0; overflow:auto; display:flex; align-items:center; justify-content:center; }
+/* safe center: when the zoomed image overflows the viewport, fall back to start
+   alignment so the TOP (hair/head) stays scrollable instead of being clipped above
+   the scroll origin. padding-top clears the floating toolbar. */
+#lb .lb-stage { position:absolute; inset:0; overflow:auto; display:flex; align-items:safe center; justify-content:safe center; padding:58px 16px 16px; }
 #lb img { display:block; }
-#lb.fit img { max-width:98vw; max-height:96vh; object-fit:contain; cursor:zoom-in; }
+#lb.fit img { max-width:96vw; max-height:calc(100vh - 80px); object-fit:contain; cursor:zoom-in; }
 #lb.native { align-items:flex-start; justify-content:flex-start; }
 #lb.native img { max-width:none; max-height:none; cursor:zoom-out; }
 #lb .lb-bar { position:fixed; top:12px; left:50%; transform:translateX(-50%); z-index:101; display:flex; gap:8px; align-items:center; background:rgba(20,20,24,.82); color:#fff; padding:7px 12px; border-radius:10px; font-size:13px; }
