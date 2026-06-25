@@ -20,7 +20,7 @@ button { cursor:pointer; }
 .sw-checker { background:conic-gradient(#ccc 90deg,#fff 0 180deg,#ccc 0 270deg,#fff 0); background-size:14px 14px; }
 .sw-white{background:#fff}.sw-black{background:#0f0f16}.sw-gray{background:#808080}.sw-magenta{background:#c0186b}.sw-teal{background:#1f9e8a}
 main { padding:18px 24px 60px; }
-.readme, .summary, .sample-card { max-width:1580px; margin:0 auto 18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:0 8px 24px rgba(40,32,20,.06); }
+.readme, .summary, .sample-card { max-width:1860px; margin:0 auto 18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:0 8px 24px rgba(40,32,20,.06); }
 .readme { padding:16px 20px; }
 .readme h2, .summary h2 { margin:0 0 8px; font-size:18px; }
 .readme ul { margin:6px 0 0; padding-left:20px; line-height:1.7; font-size:14px; }
@@ -34,7 +34,7 @@ th small { display:block; color:var(--muted); font-weight:500; margin-top:2px; }
 .sample-card h2 { margin:0; font-size:18px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
 .hint { color:var(--muted); font-size:12px; }
 a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-.schemes { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; padding:14px; }
+.schemes { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; padding:14px; }
 .scheme { border:1px solid var(--line); border-radius:8px; background:white; overflow:hidden; display:flex; flex-direction:column; }
 .scheme-head { min-height:78px; display:flex; justify-content:space-between; gap:10px; padding:11px 12px 8px; border-bottom:1px solid var(--line); }
 .scheme h3 { margin:0 0 4px; font-size:16px; }
@@ -93,8 +93,8 @@ body.focused .schemes { } /* keep 3-up even when focused */
 <body class="bg-checker">
 <header class="hero">
   <h1>透明立绘抠图 · 多背景展示</h1>
-  <p>已抠好的 RGBA 立绘叠在可切换的底色上，方便肉眼检查边缘。四方案并排：
-     <b>ToonOut（推荐）</b> / <b>MODNet（现状）</b> / <b>规则·白描边</b> / <b>规则·软光描边</b>。
+  <p>已抠好的 RGBA 立绘叠在可切换的底色上，方便肉眼检查边缘。五方案并排：
+     <b>ToonOut（推荐）</b> / <b>MODNet（现状）</b> / <b>规则·白描边</b> / <b>规则·软光描边</b> · <b>全流程·发型约束(★推荐)</b>。
      最后一列是把白描边<b>保留并软化成半透明柔光</b>（不是去掉、而是当成发光描边风格），烤进 PNG、任何背景一致。
      底色切到<b>黑</b>看白边/halo 与软光效果，切到<b>品红/青绿</b>看残色与缺口，切到<b>白</b>看黑边自然度，
      <b>棋盘</b>看真实透明；色板右侧三张是<b>真实游戏背景</b>（直接取自 Demo 场景图），
@@ -102,10 +102,10 @@ body.focused .schemes { } /* keep 3-up even when focused */
   <div class="controls">
     <label>底色 <span class="swatches"><button class="swatch sw-checker" data-bg="bg-checker" title="棋盘/透明"></button><button class="swatch sw-white" data-bg="bg-white" title="白"></button><button class="swatch sw-black" data-bg="bg-black" title="黑"></button><button class="swatch sw-gray" data-bg="bg-gray" title="灰"></button><button class="swatch sw-magenta" data-bg="bg-magenta" title="品红"></button><button class="swatch sw-teal" data-bg="bg-teal" title="青绿"></button><span class="sw-divider"></span><button class="swatch game" data-bg="bg-apt" title="真实游戏背景：老公寓·暖光" style="background-image:url(bg/old_apartment_warm.png)"></button><button class="swatch game" data-bg="bg-roof" title="真实游戏背景：天台·夜" style="background-image:url(bg/rooftop_night_wind.png)"></button><button class="swatch game" data-bg="bg-bar" title="真实游戏背景：花园酒吧·夜" style="background-image:url(bg/garden_bar_night.png)"></button></span></label>
     <label>角色 <select id="sampleSelect"><option value="">全部 (20)</option><option value="silver_hair_translucent_sleeves">silver_hair_translucent_sleeves</option><option value="pink_curly_afro">pink_curly_afro</option><option value="blonde_drill_curls">blonde_drill_curls</option><option value="fluffy_orange_twintails">fluffy_orange_twintails</option><option value="wispy_black_hair_white_blouse">wispy_black_hair_white_blouse</option><option value="purple_dreadlocks">purple_dreadlocks</option><option value="teal_messy_bun_strands">teal_messy_bun_strands</option><option value="pastel_twin_tails_thin_ribbons">pastel_twin_tails_thin_ribbons</option><option value="very_long_straight_black">very_long_straight_black</option><option value="blonde_curls_dark_coat">blonde_curls_dark_coat</option><option value="green_wavy_long">green_wavy_long</option><option value="brown_wolfcut_layered">brown_wolfcut_layered</option><option value="white_braid_crown">white_braid_crown</option><option value="silver_hime_cut">silver_hime_cut</option><option value="blue_high_ponytail">blue_high_ponytail</option><option value="red_spiky_short">red_spiky_short</option><option value="spiky_hair_black_outfit">spiky_hair_black_outfit</option><option value="blue_jacket_prop_edges">blue_jacket_prop_edges</option><option value="red_gown_long_hair">red_gown_long_hair</option><option value="white_suit_dark_outline">white_suit_dark_outline</option></select></label>
-    <label>方案 <select id="methodSelect"><option value="">四方案并排</option>
+    <label>方案 <select id="methodSelect"><option value="">五方案并排</option>
       <option value="toonout">只看 ToonOut</option><option value="modnet">只看 MODNet</option>
       <option value="rule">只看 规则·白描边</option>
-      <option value="rim">只看 规则·软光描边</option></select></label>
+      <option value="rim">只看 规则·软光描边</option><option value="contract">只看 全流程·契约</option></select></label>
     <button id="resetBtn">重置</button>
   </div>
 </header>
@@ -129,6 +129,7 @@ body.focused .schemes { } /* keep 3-up even when focused */
 <td>0.12</td><td>0.026</td><td>复杂卷发有灰 halo</td></tr>
 <tr><th>规则 · 白描边</th><td>—</td><td>—</td><td>~0.014</td><td>≈0</td><td>零成本兜底 / 撞色崩</td></tr>
 <tr><th>规则 · 软光描边</th><td>—</td><td>—</td><td>~0.02</td><td>≈0</td><td>保留白边做柔光 / 任何背景一致</td></tr>
+<tr><th>全流程 · 推荐 ★</th><td>—</td><td>—</td><td>~0.5</td><td>≈$3/千张</td><td>内部实心契约+ML+L3+开口缝切除+色度注入改色 / 推荐</td></tr>
 </tbody></table></section>
   <article class="sample-card" data-sample="silver_hair_translucent_sleeves">
     <header><h2>silver_hair_translucent_sleeves</h2><span class="hint">点任意图放大 · 顶栏切底色看边缘</span></header>
@@ -160,6 +161,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/silver_hair_translucent_sleeves.png" loading="lazy" alt="silver_hair_translucent_sleeves · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/silver_hair_translucent_sleeves.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/silver_hair_translucent_sleeves.png" loading="lazy" alt="silver_hair_translucent_sleeves · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -194,6 +202,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/pink_curly_afro.png" loading="lazy" alt="pink_curly_afro · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/pink_curly_afro.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/pink_curly_afro.png" loading="lazy" alt="pink_curly_afro · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="blonde_drill_curls">
@@ -226,6 +241,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/blonde_drill_curls.png" loading="lazy" alt="blonde_drill_curls · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/blonde_drill_curls.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/blonde_drill_curls.png" loading="lazy" alt="blonde_drill_curls · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -260,6 +282,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/fluffy_orange_twintails.png" loading="lazy" alt="fluffy_orange_twintails · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/fluffy_orange_twintails.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/fluffy_orange_twintails.png" loading="lazy" alt="fluffy_orange_twintails · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="wispy_black_hair_white_blouse">
@@ -292,6 +321,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/wispy_black_hair_white_blouse.png" loading="lazy" alt="wispy_black_hair_white_blouse · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/wispy_black_hair_white_blouse.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/wispy_black_hair_white_blouse.png" loading="lazy" alt="wispy_black_hair_white_blouse · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -326,6 +362,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/purple_dreadlocks.png" loading="lazy" alt="purple_dreadlocks · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/purple_dreadlocks.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/purple_dreadlocks.png" loading="lazy" alt="purple_dreadlocks · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="teal_messy_bun_strands">
@@ -358,6 +401,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/teal_messy_bun_strands.png" loading="lazy" alt="teal_messy_bun_strands · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/teal_messy_bun_strands.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/teal_messy_bun_strands.png" loading="lazy" alt="teal_messy_bun_strands · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -392,6 +442,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/pastel_twin_tails_thin_ribbons.png" loading="lazy" alt="pastel_twin_tails_thin_ribbons · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/pastel_twin_tails_thin_ribbons.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/pastel_twin_tails_thin_ribbons.png" loading="lazy" alt="pastel_twin_tails_thin_ribbons · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="very_long_straight_black">
@@ -424,6 +481,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/very_long_straight_black.png" loading="lazy" alt="very_long_straight_black · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/very_long_straight_black.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/very_long_straight_black.png" loading="lazy" alt="very_long_straight_black · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -458,6 +522,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/blonde_curls_dark_coat.png" loading="lazy" alt="blonde_curls_dark_coat · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/blonde_curls_dark_coat.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/blonde_curls_dark_coat.png" loading="lazy" alt="blonde_curls_dark_coat · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="green_wavy_long">
@@ -490,6 +561,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/green_wavy_long.png" loading="lazy" alt="green_wavy_long · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/green_wavy_long.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/green_wavy_long.png" loading="lazy" alt="green_wavy_long · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -524,6 +602,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/brown_wolfcut_layered.png" loading="lazy" alt="brown_wolfcut_layered · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/brown_wolfcut_layered.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/brown_wolfcut_layered.png" loading="lazy" alt="brown_wolfcut_layered · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="white_braid_crown">
@@ -556,6 +641,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/white_braid_crown.png" loading="lazy" alt="white_braid_crown · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/white_braid_crown.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/white_braid_crown.png" loading="lazy" alt="white_braid_crown · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -590,6 +682,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/silver_hime_cut.png" loading="lazy" alt="silver_hime_cut · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/silver_hime_cut.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/silver_hime_cut.png" loading="lazy" alt="silver_hime_cut · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="blue_high_ponytail">
@@ -622,6 +721,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/blue_high_ponytail.png" loading="lazy" alt="blue_high_ponytail · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/blue_high_ponytail.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/blue_high_ponytail.png" loading="lazy" alt="blue_high_ponytail · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -656,6 +762,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/red_spiky_short.png" loading="lazy" alt="red_spiky_short · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/red_spiky_short.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/red_spiky_short.png" loading="lazy" alt="red_spiky_short · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="spiky_hair_black_outfit">
@@ -688,6 +801,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/spiky_hair_black_outfit.png" loading="lazy" alt="spiky_hair_black_outfit · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/spiky_hair_black_outfit.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/spiky_hair_black_outfit.png" loading="lazy" alt="spiky_hair_black_outfit · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
@@ -722,6 +842,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/blue_jacket_prop_edges.png" loading="lazy" alt="blue_jacket_prop_edges · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/blue_jacket_prop_edges.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/blue_jacket_prop_edges.png" loading="lazy" alt="blue_jacket_prop_edges · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="red_gown_long_hair">
@@ -755,6 +882,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <figure class="pane"><img class="z" src="rim/red_gown_long_hair.png" loading="lazy" alt="red_gown_long_hair · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
       </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/red_gown_long_hair.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/red_gown_long_hair.png" loading="lazy" alt="red_gown_long_hair · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
+      </section>
     </div>
   </article>
   <article class="sample-card" data-sample="white_suit_dark_outline">
@@ -787,6 +921,13 @@ body.focused .schemes { } /* keep 3-up even when focused */
         <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
         <figure class="pane"><img class="z" src="rim/white_suit_dark_outline.png" loading="lazy" alt="white_suit_dark_outline · 规则 · 软光描边">
           <figcaption>规则 · 软光描边</figcaption></figure>
+      </section>
+      <section class="scheme" data-method="contract">
+        <div class="scheme-head"><div><h3>全流程 · 推荐 ★</h3><p>完整流程（受控对照）：发型契约（含内部实心，发缝不漏底）重生 → ToonOut → ML 去灰边 → L3 收边 → 开口缝切除 → 色度注入改色（残留灰→深发色阴影）。角色≈同一个，对比左侧各方案。</p></div>
+          <a href="contract/white_suit_dark_outline.png" target="_blank">原图</a></div>
+        <div class="metrics"><span class="metric"><b>耗时</b>~14ms</span><span class="metric"><b>成本</b>≈$0</span><span class="metric"><b>GPU</b>无需</span></div>
+        <figure class="pane"><img class="z" src="contract/white_suit_dark_outline.png" loading="lazy" alt="white_suit_dark_outline · 全流程 · 推荐 ★">
+          <figcaption>全流程 · 推荐 ★</figcaption></figure>
       </section>
     </div>
   </article>
